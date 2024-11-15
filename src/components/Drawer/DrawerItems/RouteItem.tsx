@@ -4,7 +4,7 @@ import JeepRide from "./Ride Icons/JeepRide";
 import BusRide from "./Ride Icons/BusRide";
 import TrainRide from "./Ride Icons/TrainRide";
 
-const SugRouteItemContainer = () => {
+const RouteItem = () => {
   return (
     <View style={styles.container}>
       <View style={styles.upperContainer}>
@@ -30,7 +30,7 @@ const SugRouteItemContainer = () => {
   );
 };
 
-export default SugRouteItemContainer;
+export default RouteItem;
 
 const styles = StyleSheet.create({
   container: {

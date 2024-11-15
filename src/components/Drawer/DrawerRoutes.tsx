@@ -1,20 +1,18 @@
-import React from "react";
+import React, { forwardRef } from "react";
 import Drawer from "./Drawer";
-import SugRouteItemContainer from "./DrawerItems/RouteItem";
+import RouteItem from "./DrawerItems/RouteItem";
 import { Text, StyleSheet, View } from "react-native";
 
-const DrawerRoutes = () => {
+const DrawerRoutes = forwardRef((props, ref) => {
   return (
-    <Drawer>
+    <Drawer ref={ref}>
       <View style={styles.container}>
         <Text style={styles.textStyles}>Suggested Routes</Text>
-        <SugRouteItemContainer />
-        <SugRouteItemContainer />
-        <SugRouteItemContainer />
+        <RouteItem />
       </View>
     </Drawer>
   );
-};
+});
 
 export default DrawerRoutes;
 

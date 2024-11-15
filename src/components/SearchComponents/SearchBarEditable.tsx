@@ -17,7 +17,6 @@ const SearchBarEditable = () => {
 
   return (
     <View style={styles.container}>
-      {/* Back button */}
       <TouchableOpacity
         onPress={() => navigation.goBack()}
         style={styles.backButton}

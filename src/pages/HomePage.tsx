@@ -1,11 +1,10 @@
 import React, { useRef, useState } from "react";
 import { View, StyleSheet } from "react-native";
-
 import SearchBar from "../components/SearchComponents/SearchBar";
 import Map from "../components/Map/Map";
 import DrawerRoutes from "../components/Drawer/DrawerRoutes";
 
-const HomePage = () => {
+const HomePage = ({ route }: { route: any }) => {
   const mapRef = useRef<{ moveToUserLocation: () => void } | null>(null);
 
   return (
@@ -29,11 +28,6 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: "#000",
-  },
-  btnContainer: {
-    alignSelf: "flex-end",
-    alignItems: "flex-end",
-    gap: 24,
   },
   UIContainer: {
     flex: 1,

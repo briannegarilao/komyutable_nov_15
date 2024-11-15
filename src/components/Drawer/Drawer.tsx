@@ -1,37 +1,39 @@
-import BottomSheet, { BottomSheetScrollView } from "@gorhom/bottom-sheet";
-import React, { useCallback, useRef } from "react";
+import React, { forwardRef, useImperativeHandle, useRef } from "react";
 import { StyleSheet } from "react-native";
+import BottomSheet, { BottomSheetScrollView } from "@gorhom/bottom-sheet";
 
 interface DrawerProps {
   children: React.ReactNode;
 }
 
-const Drawer: React.FC<DrawerProps> = ({ children }) => {
-  // ref
+const Drawer = forwardRef((props: DrawerProps, ref) => {
   const bottomSheetRef = useRef<BottomSheet>(null);
 
-  // callbacks
-  const handleSheetChanges = useCallback((index: number) => {
-    console.log("handleSheetChanges", index);
-  }, []);
+  const handleExpandDrawer = () => {
+    if (bottomSheetRef.current) {
+      bottomSheetRef.current.expand();
+    }
+  };
 
-  // Use constant snapPoints
-  const snapPoints = ["10%", "30%", "60%", "100%"];
+  useImperativeHandle(ref, () => ({
+    expandDrawer: handleExpandDrawer,
+  }));
+
+  const snapPoints = ["5%", "10%", "30%", "60%", "100%"];
 
   return (
     <BottomSheet
       ref={bottomSheetRef}
-      onChange={handleSheetChanges}
-      index={1}
+      index={0}
       snapPoints={snapPoints}
       enablePanDownToClose={false}
     >
       <BottomSheetScrollView contentContainerStyle={styles.contentContainer}>
-        {children}
+        {props.children}
       </BottomSheetScrollView>
     </BottomSheet>
   );
-};
+});
 
 export default Drawer;
 

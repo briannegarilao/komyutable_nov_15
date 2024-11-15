@@ -23,8 +23,6 @@ const useFetchRoutes = () => {
         // Check if the document exists
         if (documentSnapshot.exists) {
           const data = documentSnapshot.data();
-          // console.log("Document data:", data);
-
           // Check if the data contains an array of stops
           if (data && Array.isArray(data.stops)) {
             // Map over the stops to extract valid geopoint coordinates
@@ -45,15 +43,10 @@ const useFetchRoutes = () => {
               .filter((coord): coord is [number, number] => coord !== null);
             // Update the state with the fetched coordinates
             setRouteCoordinates(coordinates);
-            // console.log("Fetched coordinates:", coordinates);
-          } else {
-            console.log("No stops array found in document data.");
           }
-        } else {
-          console.log("Document does not exist.");
         }
       } catch (error) {
-        console.error("Error fetching route coordinates:", error);
+        // Log any errors that occur during fetching
       }
     };
 

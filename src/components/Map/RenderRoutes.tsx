@@ -1,5 +1,3 @@
-// RenderRoutes.tsx
-
 import React from "react";
 import RouteShape from "./RouteShape";
 
