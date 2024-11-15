@@ -1,18 +1,20 @@
 import React, { forwardRef } from "react";
-import MapBox, { Camera, LocationPuck, MapView } from "@rnmapbox/maps";
+import MapBox, {
+  Camera,
+  LocationPuck,
+  MapView,
+  ShapeSource,
+  LineLayer,
+} from "@rnmapbox/maps";
 import { StyleSheet } from "react-native";
-import useFetchRoutes from "../../hooks/useFetchRoutes";
-import useRouteCoordinates from "../../hooks/useRouteCoordinates";
-import RouteShape from "./RouteShape";
+
+import useRoutes from "../../hooks/useRoutes";
+import colors from "../../constants/colors";
 
 MapBox.setAccessToken(process.env.EXPO_PUBLIC_MAPBOX_KEY || "");
 
 const Map = forwardRef((props, ref) => {
-  // Fetch routes using the custom hook
-  const coordinates: [number, number][] = useFetchRoutes() || [];
-
-  // Use the new custom hook
-  const routeCoordinates = useRouteCoordinates(coordinates);
+  const routeCoordinates = useRoutes();
 
   return (
     <MapView
@@ -30,7 +32,28 @@ const Map = forwardRef((props, ref) => {
       <Camera followUserLocation followZoomLevel={16} />
 
       {routeCoordinates.length > 0 && (
-        <RouteShape coordinates={routeCoordinates} />
+        <ShapeSource
+          id="routeSource"
+          lineMetrics
+          shape={{
+            properties: {},
+            type: "Feature",
+            geometry: {
+              type: "LineString",
+              coordinates: routeCoordinates,
+            },
+          }}
+        >
+          <LineLayer
+            id="exampleLineLayer"
+            style={{
+              lineColor: colors.main,
+              lineCap: "round",
+              lineJoin: "round",
+              lineWidth: 8,
+            }}
+          />
+        </ShapeSource>
       )}
 
       <LocationPuck
