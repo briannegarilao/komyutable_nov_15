@@ -1,0 +1,69 @@
+{
+  "project_info": {
+    "project_number": "737035993314",
+    "firebase_url": "https://komyutable-default-rtdb.asia-southeast1.firebasedatabase.app",
+    "project_id": "komyutable",
+    "storage_bucket": "komyutable.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:737035993314:android:566b56de7cfbf280ef1ebb",
+        "android_client_info": {
+          "package_name": "com.briannegarilao.komyutable_official"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "737035993314-ger9l80hl8t3fr7q131osnbovsr50hm2.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCwNHuSh1njp3QznLw6plX4V3Ppyokdzbo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "737035993314-ger9l80hl8t3fr7q131osnbovsr50hm2.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:737035993314:android:ba77a7c1ae1b7c25ef1ebb",
+        "android_client_info": {
+          "package_name": "kompyuters.komyutable"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "737035993314-ger9l80hl8t3fr7q131osnbovsr50hm2.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCwNHuSh1njp3QznLw6plX4V3Ppyokdzbo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "737035993314-ger9l80hl8t3fr7q131osnbovsr50hm2.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
