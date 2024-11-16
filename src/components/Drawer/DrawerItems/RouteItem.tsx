@@ -1,37 +1,43 @@
 import React from "react";
-import { View, StyleSheet, Text } from "react-native";
+import { View, StyleSheet, Text, TouchableOpacity } from "react-native";
 import JeepRide from "./Ride Icons/JeepRide";
 import BusRide from "./Ride Icons/BusRide";
 import TrainRide from "./Ride Icons/TrainRide";
 
-const RouteItem = () => {
+interface RouteItemProps {
+  onPress: () => void;
+  rides: string[];
+  fare: string;
+  duration: string;
+  distance: string;
+}
+
+const RouteItem: React.FC<RouteItemProps> = ({
+  onPress,
+  rides,
+  fare,
+  duration,
+  distance,
+}) => {
   return (
-    <View style={styles.container}>
+    <TouchableOpacity onPress={onPress} style={styles.container}>
       <View style={styles.upperContainer}>
         <View style={styles.rideContainer}>
-          <JeepRide />
-          <BusRide />
-          <TrainRide />
+          {rides.includes("JeepRide") && <JeepRide />}
+          {rides.includes("BusRide") && <BusRide />}
+          {rides.includes("TrainRide") && <TrainRide />}
         </View>
         <View style={styles.fareContainer}>
-          <Text style={{ fontSize: 14, color: "#1d1d1d" }}>₱69.00</Text>
-          <Text style={{ fontSize: 14, color: "#777" }}>2 hrs</Text>
+          <Text style={{ fontSize: 14, color: "#1d1d1d" }}>₱{fare}</Text>
+          <Text style={{ fontSize: 14, color: "#777" }}>{duration}</Text>
+          <Text style={{ fontSize: 14, color: "#777" }}>{distance}</Text>
         </View>
       </View>
-
-      <View style={styles.horizontalLine} />
-
-      <View style={styles.timeFrame}>
-        <Text style={{ fontSize: 14, color: "#777" }}>12:00 PM</Text>
-        <Text style={{ fontSize: 14, color: "#154992" }}>120 min</Text>
-        <Text style={{ fontSize: 14, color: "#154992" }}>1:00 PM</Text>
-      </View>
-    </View>
+    </TouchableOpacity>
   );
 };
 
 export default RouteItem;
-
 const styles = StyleSheet.create({
   container: {
     flexDirection: "column",
@@ -59,16 +65,5 @@ const styles = StyleSheet.create({
     flexDirection: "column",
     justifyContent: "flex-start",
     alignItems: "flex-end",
-  },
-  horizontalLine: {
-    height: 10,
-    width: "100%",
-    backgroundColor: "#154992",
-    borderRadius: 100,
-  },
-  timeFrame: {
-    flexDirection: "row",
-    justifyContent: "space-between",
-    width: "100%",
   },
 });

@@ -7,7 +7,7 @@ const DirectionContainer = () => {
       <View style={styles.imageContainer}>
         <Image
           style={styles.image}
-          source={require("../../../assets/images/bus_icon.png")}
+          source={require("../../../../assets/images/bus_icon.png")}
         />
       </View>
       <View style={styles.descContainer}>

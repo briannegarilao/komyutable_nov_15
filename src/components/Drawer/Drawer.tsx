@@ -15,8 +15,15 @@ const Drawer = forwardRef((props: DrawerProps, ref) => {
     }
   };
 
+  const handleCloseDrawer = () => {
+    if (bottomSheetRef.current) {
+      bottomSheetRef.current.close();
+    }
+  };
+
   useImperativeHandle(ref, () => ({
     expandDrawer: handleExpandDrawer,
+    closeDrawer: handleCloseDrawer,
   }));
 
   const snapPoints = ["5%", "10%", "30%", "60%", "100%"];
@@ -24,7 +31,7 @@ const Drawer = forwardRef((props: DrawerProps, ref) => {
   return (
     <BottomSheet
       ref={bottomSheetRef}
-      index={0}
+      index={0} // Default to closed state
       snapPoints={snapPoints}
       enablePanDownToClose={false}
     >

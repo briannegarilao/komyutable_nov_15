@@ -1,22 +1,30 @@
-import React, { useRef, useState } from "react";
+import React, { useState } from "react";
 import { View, StyleSheet } from "react-native";
 import SearchBar from "../components/SearchComponents/SearchBar";
 import Map from "../components/Map/Map";
 import DrawerRoutes from "../components/Drawer/DrawerRoutes";
 
-const HomePage = ({ route }: { route: any }) => {
-  const mapRef = useRef<{ moveToUserLocation: () => void } | null>(null);
+const HomePage = () => {
+  // Initialize routeCoordinates as an empty array
+  const [routeCoordinates, setRouteCoordinates] = useState<[number, number][]>(
+    []
+  );
+
+  const handleRouteSelection = (coordinates: [number, number][]) => {
+    // Update routeCoordinates only when the user selects a route
+    setRouteCoordinates(coordinates);
+  };
 
   return (
     <View style={styles.container}>
       <View style={styles.drawerContainer}>
-        <DrawerRoutes />
+        <DrawerRoutes onRouteItemPress={handleRouteSelection} />
       </View>
       <View style={styles.UIContainer}>
         <SearchBar />
       </View>
       <View style={styles.mapContainer}>
-        <Map ref={mapRef} />
+        <Map routeCoordinates={routeCoordinates} />
       </View>
     </View>
   );

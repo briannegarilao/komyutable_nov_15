@@ -10,7 +10,6 @@ import { enableScreens } from "react-native-screens";
 import HomePage from "./src/pages/HomePage";
 import SearchPage from "./src/pages/SearchPage";
 import colors from "./src/constants/colors";
-import useRequestLocation from "./src/hooks/useRequestLocation";
 
 enableScreens();
 

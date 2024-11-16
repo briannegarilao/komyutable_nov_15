@@ -7,15 +7,15 @@ import MapBox, {
   LineLayer,
 } from "@rnmapbox/maps";
 import { StyleSheet } from "react-native";
-
-import useRoutes from "../../hooks/useRoutes";
 import colors from "../../constants/colors";
 
 MapBox.setAccessToken(process.env.EXPO_PUBLIC_MAPBOX_KEY || "");
 
-const Map = forwardRef((props, ref) => {
-  const routeCoordinates = useRoutes();
+interface MapProps {
+  routeCoordinates: [number, number][];
+}
 
+const Map = forwardRef<MapView, MapProps>(({ routeCoordinates }, ref) => {
   return (
     <MapView
       style={styles.map}

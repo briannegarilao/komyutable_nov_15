@@ -12,6 +12,10 @@ import { RootStackParamList } from "../../types/types";
 
 import colors from "../../constants/colors";
 
+interface SearchBarProps {
+  onPress: () => void;
+}
+
 const SearchBar = () => {
   const navigation = useNavigation<NavigationProp<RootStackParamList>>();
 

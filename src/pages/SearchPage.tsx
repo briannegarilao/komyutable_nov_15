@@ -9,7 +9,7 @@ const SearchPage = () => {
 
   // Handle the search item press
   const handleSearchItemPress = () => {
-    navigation.navigate("Home", { expandDrawer: true });
+    navigation.navigate("Home");
   };
 
   return (

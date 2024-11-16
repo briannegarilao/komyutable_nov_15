@@ -1,4 +1,3 @@
-// SearchItem.tsx
 import React from "react";
 import { View, Text, StyleSheet, TouchableOpacity, Image } from "react-native";
 
@@ -31,6 +30,7 @@ const SearchItem: React.FC<SearchItemProps> = ({
       <View style={styles.infoContainer}>
         <Text style={styles.name}>{name}</Text>
         <Text style={styles.address}>{address}</Text>
+        <Text style={styles.address}>{distance}</Text>
       </View>
 
       <View style={styles.arrowContainer}>
