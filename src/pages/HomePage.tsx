@@ -11,7 +11,6 @@ const HomePage = () => {
   );
 
   const handleRouteSelection = (coordinates: [number, number][]) => {
-    // Update routeCoordinates only when the user selects a route
     setRouteCoordinates(coordinates);
   };
 

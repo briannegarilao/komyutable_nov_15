@@ -5,9 +5,12 @@ import MapBox, {
   MapView,
   ShapeSource,
   LineLayer,
+  PointAnnotation,
 } from "@rnmapbox/maps";
 import { StyleSheet } from "react-native";
 import colors from "../../constants/colors";
+import useFetchBusLocations from "../../hooks/useFetchBusLocation";
+import BusIcon from "../../components/Map/BusIcon";
 
 MapBox.setAccessToken(process.env.EXPO_PUBLIC_MAPBOX_KEY || "");
 
@@ -16,6 +19,8 @@ interface MapProps {
 }
 
 const Map = forwardRef<MapView, MapProps>(({ routeCoordinates }, ref) => {
+  const { busLocations } = useFetchBusLocations(); // Fetch bus locations
+
   return (
     <MapView
       style={styles.map}
@@ -31,6 +36,7 @@ const Map = forwardRef<MapView, MapProps>(({ routeCoordinates }, ref) => {
     >
       <Camera followUserLocation followZoomLevel={16} />
 
+      {/* Render the route if there are coordinates */}
       {routeCoordinates.length > 0 && (
         <ShapeSource
           id="routeSource"
@@ -55,6 +61,11 @@ const Map = forwardRef<MapView, MapProps>(({ routeCoordinates }, ref) => {
           />
         </ShapeSource>
       )}
+
+      {/* Render bus icons for each bus */}
+      {busLocations.map((bus) => (
+        <BusIcon key={bus.id} busCoordinate={bus.location} />
+      ))}
 
       <LocationPuck
         puckBearing="heading"

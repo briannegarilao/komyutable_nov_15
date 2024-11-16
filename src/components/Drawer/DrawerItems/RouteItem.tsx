@@ -3,6 +3,7 @@ import { View, StyleSheet, Text, TouchableOpacity } from "react-native";
 import JeepRide from "./Ride Icons/JeepRide";
 import BusRide from "./Ride Icons/BusRide";
 import TrainRide from "./Ride Icons/TrainRide";
+import WalkRide from "./Ride Icons/WalkRide";
 
 interface RouteItemProps {
   onPress: () => void;
@@ -26,6 +27,7 @@ const RouteItem: React.FC<RouteItemProps> = ({
           {rides.includes("JeepRide") && <JeepRide />}
           {rides.includes("BusRide") && <BusRide />}
           {rides.includes("TrainRide") && <TrainRide />}
+          {rides.includes("Walkide") && <WalkRide />}
         </View>
         <View style={styles.fareContainer}>
           <Text style={{ fontSize: 14, color: "#1d1d1d" }}>₱{fare}</Text>

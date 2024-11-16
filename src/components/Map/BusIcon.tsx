@@ -2,7 +2,7 @@ import { PointAnnotation } from "@rnmapbox/maps";
 import React from "react";
 import { Image, StyleSheet, TouchableOpacity } from "react-native";
 
-const busIcon = require("../../../assets/images/bus_icon.png");
+const busIcon = require("../../../assets/images/bus_icon.png"); // Ensure the path is correct
 
 interface BusIconProps {
   busCoordinate: [number, number];
